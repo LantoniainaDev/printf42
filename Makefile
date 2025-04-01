@@ -10,12 +10,12 @@ SRC		=	ft_printf.c
 
 OBJ		=	$(SRC:.c=.o)
 
-%.c		:	%.o
-	$(CC) $(CFLAG) $< -o $@
+%o		:	%.c
+	$(CC) $(CFLAG) -I $(LIBFT)/libft -L $(LIBFT) -c $< -o $@ 
 
 all		:	$(NAME)
 
-$(NAME)	:
+$(NAME)	: $(OBJ)
 	make -C $(LIBFT)
 	cp libft/libft.a $@
 	ar -rsc $@ $(OBJ)

@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramanit <eramanit@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/29 07:51:35 by eramanit          #+#    #+#             */
-/*   Updated: 2025/03/29 08:07:41 by eramanit         ###   ########.fr       */
+/*   Created: 2025/04/01 11:42:49 by eramanit          #+#    #+#             */
+/*   Updated: 2025/04/01 11:45:19 by eramanit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft/libft.h"
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-
-	return (printf("format: %s", format));
+	ft_putstr_fd((char *)format, 1);
+	return (ft_strlen(format));
 }
