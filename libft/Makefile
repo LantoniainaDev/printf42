@@ -6,7 +6,7 @@
 #    By: eramanit <eramanit@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/23 22:59:55 by eramanit          #+#    #+#              #
-#    Updated: 2025/04/01 09:50:18 by eramanit         ###   ########.fr        #
+#    Updated: 2025/04/13 12:23:05 by eramanit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,20 +42,20 @@ OBJ		=	${SRC:.c=.o}
 OBJALL	=	${SRCALL:.c=.o}
 
 %.o		:	%.c
-		${CC} ${CFLAG} -c $< -o $@
+		@${CC} ${CFLAG} -c $< -o $@
 
 all		: ${NAME}
 
 ${NAME}	:	${OBJ}
-		ar -rsc ${NAME} ${OBJ}
+		@ar -rsc ${NAME} ${OBJ}
 
 bonus	:	${OBJALL}
-		ar -rsc ${NAME} ${OBJALL}	
+		@ar -rsc ${NAME} ${OBJALL}	
 
 clean	:
-		rm -f ${OBJALL}
+		@rm -f ${OBJALL}
 
 fclean	:	clean;
-		rm -f ${NAME}
+		@rm -f ${NAME}
 
 re		:	fclean all

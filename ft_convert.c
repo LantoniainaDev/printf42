@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_convert.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramanit <eramanit@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 11:42:49 by eramanit          #+#    #+#             */
-/*   Updated: 2025/04/13 13:00:26 by eramanit         ###   ########.fr       */
+/*   Created: 2025/04/13 12:07:57 by eramanit          #+#    #+#             */
+/*   Updated: 2025/04/13 13:16:01 by eramanit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_convert(const char *s, va_list args)
 {
-	va_list	args;
-	int		i;
+	char	*res;
+	char	c;
 	int		len;
 
 	len = 0;
-	i = 0;
-	va_start(args, format);
-	while (format[i])
+	if (s[1] == 'c')
 	{
-		if (format[i] == '%')
-		{
-			len += ft_convert(format + i, args);
-			i += 2;
-		}
-		else
-		{
-			ft_putchar_fd(format[i], 1);
-			len++;
-			i++;
-		}
+		res = ft_calloc(1 + 1, 1);
+		c = (char)va_arg(args, int);
+		*res = c;
 	}
-	va_end(args);
+	else
+	{
+		res = ft_substr(s, 0, 2);
+	}
+	ft_putstr_fd(res, 1);
+	len = ft_strlen(res);
+	free(res);
 	return (len);
 }
