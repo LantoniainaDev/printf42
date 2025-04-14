@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   parse_x_upper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramanit <eramanit@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/15 02:41:28 by eramanit          #+#    #+#             */
-/*   Updated: 2025/04/14 01:22:41 by eramanit         ###   ########.fr       */
+/*   Created: 2025/04/13 22:47:56 by eramanit          #+#    #+#             */
+/*   Updated: 2025/04/13 22:53:01 by eramanit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+char	*parse_x_upper(va_list args)
 {
-	int	i;
+	char	*res;
+	int		i;
 
 	i = 0;
-	while (s[i])
+	res = parse_x(args);
+	while (res[i])
 	{
-		ft_putchar_fd(s[i], fd);
+		res[i] = ft_toupper(res[i]);
 		i++;
 	}
+	return (res);
 }

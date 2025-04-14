@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   parse_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramanit <eramanit@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/15 02:41:28 by eramanit          #+#    #+#             */
-/*   Updated: 2025/04/14 01:22:41 by eramanit         ###   ########.fr       */
+/*   Created: 2025/04/13 16:53:12 by eramanit          #+#    #+#             */
+/*   Updated: 2025/04/14 01:29:10 by eramanit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+char	*parse_c(va_list args)
 {
-	int	i;
+	char	*res;
+	char	c;
 
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	res = ft_calloc(1 + 1, 1);
+	c = (char)va_arg(args, int);
+	*res = c;
+	if (!c)
+		ft_putchar_fd(0, 1);
+	return (res);
 }

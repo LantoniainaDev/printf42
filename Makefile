@@ -6,12 +6,17 @@ LIBFT	=	./libft
 
 CFLAG	=	-Wall -Wextra -Werror
 
-SRC		=	ft_printf.c ft_convert.c
+PARSER	=	parse_c.c parse_s.c parse_p.c \
+			parse_d.c parse_i.c parse_u.c \
+			parse_x.c parse_x_upper.c
+
+SRC		=	ft_printf.c ft_convert.c \
+			$(addprefix parser/, $(PARSER))
 
 OBJ		=	$(SRC:.c=.o)
 
-%o		:	%.c
-	@$(CC) $(CFLAG) -I $(LIBFT)/libft -L $(LIBFT) -c $< -o $@ 
+%.o		:	%.c
+	@$(CC) $(CFLAG) -I $(LIBFT)/libft -c $< -o $@ 
 
 all		:	$(NAME)
 

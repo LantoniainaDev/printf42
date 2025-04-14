@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   parse_s.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramanit <eramanit@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/15 02:41:28 by eramanit          #+#    #+#             */
-/*   Updated: 2025/04/14 01:22:41 by eramanit         ###   ########.fr       */
+/*   Created: 2025/04/13 16:53:58 by eramanit          #+#    #+#             */
+/*   Updated: 2025/04/14 01:36:52 by eramanit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+char	*parse_s(va_list args)
 {
-	int	i;
+	char	*s;
+	char	*res;
 
-	i = 0;
-	while (s[i])
+	res = NULL;
+	s = (char *)va_arg(args, char *);
+	if (s)
 	{
-		ft_putchar_fd(s[i], fd);
-		i++;
+		res = ft_strdup(s);
+		return (res);
 	}
+	else
+		return (ft_strdup("(null)"));
 }
