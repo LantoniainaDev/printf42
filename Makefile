@@ -6,7 +6,7 @@
 #    By: eramanit <eramanit@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 19:07:27 by eramanit          #+#    #+#              #
-#    Updated: 2025/05/01 19:07:29 by eramanit         ###   ########.fr        #
+#    Updated: 2025/05/02 00:49:43 by eramanit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ OBJ		=	$(SRC:.c=.o)
 	@$(CC) $(CFLAG) -I $(LIBFT)/libft -c $< -o $@ 
 
 all		:	$(NAME)
+
+bonus	:	all
 
 $(NAME)	: $(OBJ)
 	@make -C $(LIBFT)
