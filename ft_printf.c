@@ -6,7 +6,7 @@
 /*   By: eramanit <eramanit@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 11:42:49 by eramanit          #+#    #+#             */
-/*   Updated: 2025/04/13 13:00:26 by eramanit         ###   ########.fr       */
+/*   Updated: 2025/05/10 10:06:08 by eramanit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_printf(const char *format, ...)
 
 	len = 0;
 	i = 0;
+	if (!format)
+		return (-1);
 	va_start(args, format);
 	while (format[i])
 	{
