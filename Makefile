@@ -6,7 +6,7 @@
 #    By: eramanit <eramanit@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 19:07:27 by eramanit          #+#    #+#              #
-#    Updated: 2025/05/10 09:59:31 by eramanit         ###   ########.fr        #
+#    Updated: 2025/05/24 15:41:19 by eramanit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,7 @@ clean	:
 fclean	:	clean
 	@make fclean -C $(LIBFT)
 	@rm -rf $(NAME)
-	clear
 
 re		:	fclean all
 
-.PHONY	: $(NAME) fclean clean re
+.PHONY	: all fclean clean re
